@@ -23,6 +23,14 @@ function add(a,b)
 	return c;
 }
 
+// module: subtraction a - b |
+output(subtract(3,2));
+output(subtract(3,-2));
+output(subtract(3,0));
+function subtract(a,b) 
+{
+	return a - b;
+}
 
 
 
