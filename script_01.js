@@ -11,6 +11,55 @@
 4. Ausgabe in Konsole : check
 */
 
+// Konstanten
+const ERROR_STR_DIV = "Division durch 0 nicht möglich!";
+const ERROR_STR_GEN = "Irgendetwas ging schief!"
+
+// module: calculator | tests:
+
+// agreement : "+","-","*",":","/"
+startApp()
+function startApp() 
+{
+	output(calculator(getNum(),getNum(),getOp()));
+}
+
+function getNum() 
+{
+	return parseInt(prompt("Zahl?"));
+}
+output(getOp());
+function getOp() 
+{
+	return prompt("Operator");
+}
+// output(calculator(3,2,"+"));
+// output(calculator(3,2,"-"));
+// output(calculator(3,2,"*"));
+// output(calculator(3,2,":"));
+// output(calculator(3,2,"/"));
+// output(calculator(3,0,"/"));
+function calculator(a,b,op)
+{
+	switch (op) {
+		case "+":
+			return add(a,b);
+		case "-":
+			return subtract(a,b);
+		case "*":
+			return multiply(a,b);
+		case "/":
+		case ":":
+			return division(a,b);
+			
+			break;
+	
+		default:
+			return ERROR_STR_GEN;
+	}
+}
+
+
 
 // module: addition a + b |  test:
 // output(add(2,2));
@@ -43,16 +92,16 @@ function multiply(a,b)
 }
 
 // module: division a / b |
-output(division(3,2));
-output(division(3,-2));
-output(division(3,0));
+// output(division(3,2));
+// output(division(3,-2));
+// output(division(3,0));
 
 function division(a,b) 
 {
-	if (b != 0) {
-		return a / b ;
+	if (b != 0) { // Ausnahme + Abbruch
+		return a / b ; 
 	} else {
-	return "Teilen durch 0 nicht möglich!"
+	return ERROR_STR_DIV // Regel
 	}
 }
 
